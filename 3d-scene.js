@@ -292,10 +292,10 @@ import * as THREE from "three";
 
     if (mobile) {
       sculpture.position.set(1.02, -0.02, -0.1);
-      sculpture.scale.setScalar(0.43);
+      sculpture.scale.setScalar(0.47);
     } else {
       sculpture.position.set(1.62, 0.02, 0);
-      sculpture.scale.setScalar(0.66);
+      sculpture.scale.setScalar(0.72);
     }
 
     sculpture.rotation.set(
@@ -338,9 +338,9 @@ import * as THREE from "three";
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(sculpture.rotation, {
-      y: sculpture.rotation.y + Math.PI * 0.72,
-      x: sculpture.rotation.x + Math.PI * 0.16,
-      z: sculpture.rotation.z + Math.PI * 0.08,
+      y: sculpture.rotation.y + Math.PI * 1.15,
+      x: sculpture.rotation.x + Math.PI * 0.24,
+      z: sculpture.rotation.z + Math.PI * 0.12,
       ease: "none",
       scrollTrigger: {
         trigger: hero,
