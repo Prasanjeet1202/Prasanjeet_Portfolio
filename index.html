@@ -1,26 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Prasanjeet | Video Editor &amp; Graphics Designer</title>
+
   <meta name="description" content="Prasanjeet is a video editor and graphics designer creating sports edits, promotional videos, cinematic edits and sports graphics.">
   <meta name="theme-color" content="#080808">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js Module Mapping -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <!-- GSAP Animation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
 
+  <!-- PAGE PROGRESS -->
   <div class="progress" id="progress"></div>
 
-  <!-- ============ HEADER / NAVIGATION (six headings only) ============ -->
+  <!-- ============ HEADER / NAVIGATION ============ -->
   <header class="header" id="header">
+
     <a href="#hero" class="logo">PRASANJEET<span>.</span></a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span>
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav"
+    >
+      <span></span>
+      <span></span>
     </button>
 
     <nav class="nav" id="nav" aria-label="Main navigation">
@@ -31,32 +61,51 @@
       <a href="#graphics" data-section="graphics">GRAPHICS</a>
       <a href="#contact" data-section="contact">CONTACT</a>
     </nav>
+
   </header>
 
   <main>
 
     <!-- ============ 1. HERO ============ -->
     <section class="hero" id="hero" aria-label="Hero">
-      <!-- Optional looping background video. Add videos/hero-bg.mp4 to use it. -->
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata">
-        <source src="videos/hero-bg.mp4" type="video/mp4">
-      </video>
+
+      <!-- THREE.JS 3D SCENE -->
+      <div class="hero-3d" aria-hidden="true">
+        <canvas id="hero3dCanvas"></canvas>
+      </div>
+
+      <!-- EXISTING HERO BACKGROUND -->
       <div class="hero-bg"></div>
       <div class="hero-streaks"></div>
       <div class="grain"></div>
+
       <div class="letterbox letterbox-top"></div>
       <div class="letterbox letterbox-bottom"></div>
 
+      <!-- HERO CONTENT -->
       <div class="container hero-inner">
+
         <p class="hero-name">PRASANJEET<span>.</span></p>
 
         <h1 class="hero-title" aria-label="Visuals that define the game.">
-          <span class="line"><span style="--d:.15s">VISUALS THAT</span></span>
-          <span class="line"><span style="--d:.3s">DEFINE <em>THE</em></span></span>
-          <span class="line"><span style="--d:.45s" class="accent">GAME.</span></span>
+
+          <span class="line">
+            <span style="--d:.15s">VISUALS THAT</span>
+          </span>
+
+          <span class="line">
+            <span style="--d:.3s">DEFINE <em>THE</em></span>
+          </span>
+
+          <span class="line">
+            <span style="--d:.45s" class="accent">GAME.</span>
+          </span>
+
         </h1>
 
-        <p class="hero-role fade-up" style="--d:.7s">Video Editor <b>|</b> Graphics Designer</p>
+        <p class="hero-role fade-up" style="--d:.7s">
+          Video Editor <b>|</b> Graphics Designer
+        </p>
 
         <p class="hero-intro fade-up" style="--d:.85s">
           I turn raw footage and ideas into sharp, high-energy visuals. From sports edits and
@@ -64,50 +113,79 @@
         </p>
 
         <div class="hero-actions fade-up" style="--d:1s">
-          <a href="#videos" class="btn btn-primary"><span>View My Work</span></a>
-          <a href="#contact" class="btn btn-ghost"><span>Contact Me</span></a>
+          <a href="#videos" class="btn btn-primary">
+            <span>View My Work</span>
+          </a>
+
+          <a href="#contact" class="btn btn-ghost">
+            <span>Contact Me</span>
+          </a>
         </div>
+
       </div>
 
-      <a href="#about" class="scroll-cue" aria-label="Scroll to About Me"><span>SCROLL</span></a>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About Me">
+        <span>SCROLL</span>
+      </a>
+
     </section>
+
 
     <!-- ============ 2. ABOUT ME ============ -->
     <section class="section" id="about" aria-labelledby="about-title">
+
       <div class="container about">
 
         <div class="about-photo reveal">
           <div class="photo-frame">
-            <!-- Replace images/prasanjeet.jpg with your profile photograph (4:5 ratio works best) -->
-            <img src="images/prasanjeet.jpg" alt="Portrait of Prasanjeet" data-ph="PROFILE PHOTO" data-w="800" data-h="1000" data-hue="22" loading="lazy">
+
+            <img
+              src="images/prasanjeet.jpg"
+              alt="Portrait of Prasanjeet"
+              data-ph="PROFILE PHOTO"
+              data-w="800"
+              data-h="1000"
+              data-hue="22"
+              loading="lazy"
+            >
+
           </div>
         </div>
 
         <div class="about-text">
+
           <p class="eyebrow reveal">01</p>
+
           <h2 id="about-title" class="reveal">ABOUT ME</h2>
 
           <p class="lead reveal">
             I'm Prasanjeet, a video editor and graphics designer who believes every great
             visual starts with a feeling.
           </p>
+
           <p class="reveal">
             My creative approach is simple: find the emotion, build the rhythm, and cut everything
             that does not serve the story. Sound, pace, colour and motion all work together to
             make the viewer stop scrolling and watch.
           </p>
+
           <p class="reveal">
             My passion is visual storytelling, especially in sports, where a single second can
             change everything. Replace this text with your own experience and story.
           </p>
+
         </div>
 
       </div>
+
     </section>
+
 
     <!-- ============ 3. SOFTWARE SKILLS ============ -->
     <section class="section" id="skills" aria-labelledby="skills-title">
+
       <div class="container">
+
         <div class="section-head">
           <p class="eyebrow reveal">02</p>
           <h2 id="skills-title" class="reveal">SOFTWARE<br>SKILLS</h2>
@@ -115,219 +193,501 @@
 
         <div class="skills">
 
+          <!-- PREMIERE PRO -->
           <div class="skill reveal">
+
             <svg class="skill-logo" viewBox="0 0 96 96" role="img" aria-label="Premiere Pro logo">
               <rect x="3" y="3" width="90" height="90" rx="18" fill="#080808" stroke="#FF5A1F" stroke-width="3"/>
               <text x="48" y="64" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="46" fill="#FF5A1F">Pr</text>
             </svg>
+
             <h3>Adobe<br>Premiere Pro</h3>
+
           </div>
 
+          <!-- PHOTOSHOP -->
           <div class="skill reveal">
+
             <svg class="skill-logo" viewBox="0 0 96 96" role="img" aria-label="Photoshop logo">
               <rect x="3" y="3" width="90" height="90" rx="18" fill="#080808" stroke="#FF5A1F" stroke-width="3"/>
               <text x="48" y="64" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="46" fill="#FF5A1F">Ps</text>
             </svg>
+
             <h3>Adobe<br>Photoshop</h3>
+
           </div>
 
+          <!-- AFTER EFFECTS -->
           <div class="skill reveal">
+
             <svg class="skill-logo" viewBox="0 0 96 96" role="img" aria-label="After Effects logo">
               <rect x="3" y="3" width="90" height="90" rx="18" fill="#080808" stroke="#FF5A1F" stroke-width="3"/>
               <text x="48" y="64" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="46" fill="#FF5A1F">Ae</text>
             </svg>
+
             <h3>Adobe<br>After Effects</h3>
+
           </div>
 
+          <!-- ILLUSTRATOR -->
           <div class="skill reveal">
+
             <svg class="skill-logo" viewBox="0 0 96 96" role="img" aria-label="Illustrator logo">
               <rect x="3" y="3" width="90" height="90" rx="18" fill="#080808" stroke="#FF5A1F" stroke-width="3"/>
               <text x="48" y="64" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="46" fill="#FF5A1F">Ai</text>
             </svg>
+
             <h3>Adobe<br>Illustrator</h3>
+
           </div>
 
         </div>
+
       </div>
+
     </section>
+
 
     <!-- ============ 4. VIDEOS ============ -->
     <section class="section" id="videos" aria-labelledby="videos-title">
+
       <div class="container">
+
         <div class="section-head">
           <p class="eyebrow reveal">03</p>
           <h2 id="videos-title" class="reveal">VIDEOS</h2>
         </div>
 
-        <!--
-          ORDER: 01 vertical, 02 vertical, 03 HORIZONTAL, 04 vertical, 05 vertical
-          HOW TO REPLACE:
-          - change the <img src> to your thumbnail
-          - change data-video to your video file (e.g. videos/my-edit.mp4)
-          - change data-title to the name shown in the popup
-          To make a card horizontal use class "feature". For 9:16 use class "vertical".
-        -->
         <div class="video-grid">
 
-          <!-- 01 · VERTICAL 9:16 -->
-          <article class="video-card vertical reveal" tabindex="0" role="button" aria-label="Play video: Sports Edit"
-                   data-video="videos/video-1.mp4" data-title="Sports Edit">
-            <img src="images/video-1.jpg" alt="Sports Edit thumbnail" data-ph="VIDEO 01" data-w="900" data-h="1600" data-hue="18" loading="lazy">
+          <!-- VIDEO 01 -->
+          <article
+            class="video-card vertical reveal"
+            tabindex="0"
+            role="button"
+            aria-label="Play video: Sports Edit"
+            data-video="videos/video-1.mp4"
+            data-title="Sports Edit"
+          >
+
+            <img
+              src="images/video-1.jpg"
+              alt="Sports Edit thumbnail"
+              data-ph="VIDEO 01"
+              data-w="900"
+              data-h="1600"
+              data-hue="18"
+              loading="lazy"
+            >
+
             <span class="vc-num">01</span>
-            <span class="vc-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vc-info"><h3>Sports Edit</h3></div>
+
+            <span class="vc-play">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+            <div class="vc-info">
+              <h3>Sports Edit</h3>
+            </div>
+
           </article>
 
-          <!-- 02 · VERTICAL 9:16 -->
-          <article class="video-card vertical reveal" tabindex="0" role="button" aria-label="Play video: TalkingHead Video"
-                   data-video="videos/video-2.mp4" data-title="TalkingHead Video">
-            <img src="images/video-2.jpg" alt="TalkingHead thumbnail" data-ph="VIDEO 02" data-w="900" data-h="1600" data-hue="205" loading="lazy">
+
+          <!-- VIDEO 02 -->
+          <article
+            class="video-card vertical reveal"
+            tabindex="0"
+            role="button"
+            aria-label="Play video: TalkingHead Video"
+            data-video="videos/video-2.mp4"
+            data-title="TalkingHead Video"
+          >
+
+            <img
+              src="images/video-2.jpg"
+              alt="TalkingHead thumbnail"
+              data-ph="VIDEO 02"
+              data-w="900"
+              data-h="1600"
+              data-hue="205"
+              loading="lazy"
+            >
+
             <span class="vc-num">02</span>
-            <span class="vc-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vc-info"><h3>TalkingHead Video</h3></div>
+
+            <span class="vc-play">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+            <div class="vc-info">
+              <h3>TalkingHead Video</h3>
+            </div>
+
           </article>
 
-          <!-- 03 · HORIZONTAL 16:9 -->
-          <article class="video-card feature reveal" tabindex="0" role="button" aria-label="Play video: Podcast Trailer Edit"
-                   data-video="videos/video-3.mp4" data-title="Podcast Trailer Edit">
-            <img src="images/video-3.jpg" alt="Podcast Trailer thumbnail" data-ph="VIDEO 03" data-w="1600" data-h="900" data-hue="150" loading="lazy">
+
+          <!-- VIDEO 03 -->
+          <article
+            class="video-card feature reveal"
+            tabindex="0"
+            role="button"
+            aria-label="Play video: Podcast Trailer Edit"
+            data-video="videos/video-3.mp4"
+            data-title="Podcast Trailer Edit"
+          >
+
+            <img
+              src="images/video-3.jpg"
+              alt="Podcast Trailer thumbnail"
+              data-ph="VIDEO 03"
+              data-w="1600"
+              data-h="900"
+              data-hue="150"
+              loading="lazy"
+            >
+
             <span class="vc-num">03</span>
-            <span class="vc-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vc-info"><h3>Podcast Trailer</h3></div>
+
+            <span class="vc-play">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+            <div class="vc-info">
+              <h3>Podcast Trailer</h3>
+            </div>
+
           </article>
 
-          <!-- 04 · VERTICAL 9:16 -->
-          <article class="video-card vertical reveal" tabindex="0" role="button" aria-label="Play video: Shorts Edit"
-                   data-video="videos/video-4.mp4" data-title="Shorts Edit">
-            <img src="images/video-4.jpg" alt="Shorts Edit thumbnail" data-ph="VIDEO 04" data-w="900" data-h="1600" data-hue="280" loading="lazy">
+
+          <!-- VIDEO 04 -->
+          <article
+            class="video-card vertical reveal"
+            tabindex="0"
+            role="button"
+            aria-label="Play video: Shorts Edit"
+            data-video="videos/video-4.mp4"
+            data-title="Shorts Edit"
+          >
+
+            <img
+              src="images/video-4.jpg"
+              alt="Shorts Edit thumbnail"
+              data-ph="VIDEO 04"
+              data-w="900"
+              data-h="1600"
+              data-hue="280"
+              loading="lazy"
+            >
+
             <span class="vc-num">04</span>
-            <span class="vc-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vc-info"><h3>Shorts Edit</h3></div>
+
+            <span class="vc-play">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+            <div class="vc-info">
+              <h3>Shorts Edit</h3>
+            </div>
+
           </article>
 
-          <!-- 05 · VERTICAL 9:16 -->
-          <article class="video-card vertical reveal" tabindex="0" role="button" aria-label="Play video: BrandEdit Video"
-                   data-video="videos/video-5.mp4" data-title="BrandEdit Video">
-            <img src="images/video-5.jpg" alt="BrandEdit Video thumbnail" data-ph="VIDEO 05" data-w="900" data-h="1600" data-hue="340" loading="lazy">
+
+          <!-- VIDEO 05 -->
+          <article
+            class="video-card vertical reveal"
+            tabindex="0"
+            role="button"
+            aria-label="Play video: BrandEdit Video"
+            data-video="videos/video-5.mp4"
+            data-title="BrandEdit Video"
+          >
+
+            <img
+              src="images/video-5.jpg"
+              alt="BrandEdit Video thumbnail"
+              data-ph="VIDEO 05"
+              data-w="900"
+              data-h="1600"
+              data-hue="340"
+              loading="lazy"
+            >
+
             <span class="vc-num">05</span>
-            <span class="vc-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vc-info"><h3>BrandEdit Video</h3></div>
+
+            <span class="vc-play">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </span>
+
+            <div class="vc-info">
+              <h3>BrandEdit Video</h3>
+            </div>
+
           </article>
 
         </div>
+
       </div>
+
     </section>
+
 
     <!-- ============ 5. GRAPHICS ============ -->
     <section class="section" id="graphics" aria-labelledby="graphics-title">
+
       <div class="container">
+
         <div class="section-head">
           <p class="eyebrow reveal">04</p>
           <h2 id="graphics-title" class="reveal">GRAPHICS</h2>
         </div>
 
-        <!-- Replace each <img src> with your own design. data-title is the caption in the preview. -->
         <div class="gallery">
 
+          <!-- GRAPHIC 01 -->
           <figure class="g-item wide reveal" tabindex="0" role="button" data-title="Sports Graphic" aria-label="Preview: Sports Graphic">
+
             <img src="images/graphic-1.jpg" alt="Sports Graphic" data-ph="GRAPHIC 01" data-w="1400" data-h="800" data-hue="14" loading="lazy">
+
             <figcaption><span>Sports Graphic</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 02 -->
           <figure class="g-item tall reveal" tabindex="0" role="button" data-title="Match Poster" aria-label="Preview: Match Poster">
+
             <img src="images/graphic-2.jpg" alt="Match Poster" data-ph="GRAPHIC 02" data-w="800" data-h="1200" data-hue="215" loading="lazy">
+
             <figcaption><span>Match Poster</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 03 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Social Media Design" aria-label="Preview: Social Media Design">
+
             <img src="images/graphic-3.jpg" alt="Social Media Design" data-ph="GRAPHIC 03" data-w="900" data-h="900" data-hue="160" loading="lazy">
+
             <figcaption><span>Social Media Design</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 04 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Promotional Artwork" aria-label="Preview: Promotional Artwork">
+
             <img src="images/graphic-4.jpg" alt="Promotional Artwork" data-ph="GRAPHIC 04" data-w="900" data-h="900" data-hue="290" loading="lazy">
+
             <figcaption><span>Promotional Artwork</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 05 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Motion Graphic Design" aria-label="Preview: Motion Graphic Design">
+
             <img src="images/graphic-5.jpg" alt="Motion Graphic Design" data-ph="GRAPHIC 05" data-w="900" data-h="900" data-hue="340" loading="lazy">
+
             <figcaption><span>Motion Graphic Design</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 06 -->
           <figure class="g-item wide reveal" tabindex="0" role="button" data-title="Match Poster" aria-label="Preview: Match Poster">
+
             <img src="images/graphic-6.jpg" alt="Match Poster" data-ph="GRAPHIC 06" data-w="1400" data-h="800" data-hue="48" loading="lazy">
+
             <figcaption><span>Match Poster</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 07 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Sports Graphic" aria-label="Preview: Sports Graphic">
+
             <img src="images/graphic-7.jpg" alt="Sports Graphic" data-ph="GRAPHIC 07" data-w="900" data-h="900" data-hue="190" loading="lazy">
+
             <figcaption><span>Sports Graphic</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 08 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Social Media Design" aria-label="Preview: Social Media Design">
+
             <img src="images/graphic-8.jpg" alt="Social Media Design" data-ph="GRAPHIC 08" data-w="900" data-h="900" data-hue="120" loading="lazy">
+
             <figcaption><span>Social Media Design</span><i>+</i></figcaption>
+
           </figure>
 
+
+          <!-- GRAPHIC 09 -->
           <figure class="g-item reveal" tabindex="0" role="button" data-title="Promotional Artwork" aria-label="Preview: Promotional Artwork">
+
             <img src="images/graphic-9.jpg" alt="Promotional Artwork" data-ph="GRAPHIC 09" data-w="900" data-h="900" data-hue="320" loading="lazy">
+
             <figcaption><span>Promotional Artwork</span><i>+</i></figcaption>
+
           </figure>
 
         </div>
+
       </div>
+
     </section>
 
+
     <!-- ============ 6. CONTACT ============ -->
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <section class="section contact" id="contact">
+
       <div class="contact-glow"></div>
+
       <div class="container">
+
         <p class="eyebrow reveal">05</p>
+
         <h2 id="contact-title" class="visually-hidden">CONTACT</h2>
 
-        <p class="contact-headline reveal">LET'S CREATE<br>SOMETHING <span class="accent">IMPACTFUL.</span></p>
+        <p class="contact-headline reveal">
+          LET'S CREATE<br>
+          SOMETHING <span class="accent">IMPACTFUL.</span>
+        </p>
 
-        <a href="mailto:your@email.com" class="btn btn-primary btn-lg reveal"><span>Contact Me</span></a>
+        <a href="mailto:vayedaprasanjeet12@gmail.com" class="btn btn-primary btn-lg reveal">
+          <span>Contact Me</span>
+        </a>
 
-        <!-- Replace each link with your real details -->
         <ul class="contact-links reveal">
-          <li><a href="mailto:vayedaprasanjeet12@gmail.com"><span>Email</span><em>vayedaprasanjeet12@gmail.com</em><b>↗</b></a></li>
-          <li><a href="https://instagram.com/prasan_1202" target="_blank" rel="noopener noreferrer"><span>Instagram</span><em>@prasan_1202</em><b>↗</b></a></li>
-          <li><a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><em>/in/your-profile</em><b>↗</b></a></li>
-          <li><a href="https://wa.me/918849467757" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><em>+91 88494 67757</em><b>↗</b></a></li>
+
+          <li>
+            <a href="mailto:vayedaprasanjeet12@gmail.com">
+              <span>Email</span>
+              <em>vayedaprasanjeet12@gmail.com</em>
+              <b>↗</b>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://instagram.com/prasan_1202" target="_blank" rel="noopener noreferrer">
+              <span>Instagram</span>
+              <em>@prasan_1202</em>
+              <b>↗</b>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+              <em>/in/your-profile</em>
+              <b>↗</b>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://wa.me/918849467757" target="_blank" rel="noopener noreferrer">
+              <span>WhatsApp</span>
+              <em>+91 88494 67757</em>
+              <b>↗</b>
+            </a>
+          </li>
+
         </ul>
 
         <div class="contact-bottom">
-          <span>© <span id="year"></span> Prasanjeet. All rights reserved.</span>
+
+          <span>
+            © <span id="year"></span> Prasanjeet. All rights reserved.
+          </span>
+
           <a href="#hero">Back to top ↑</a>
+
         </div>
+
       </div>
+
     </section>
 
   </main>
 
+
   <!-- ============ VIDEO PLAYER POPUP ============ -->
-  <div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+  <div
+    class="modal"
+    id="videoModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="videoModalTitle"
+  >
+
     <div class="modal-backdrop" data-close></div>
+
     <div class="modal-box modal-video">
+
       <button class="modal-close" data-close aria-label="Close video">×</button>
+
       <div class="player" id="player"></div>
-      <div class="modal-caption"><h3 id="videoModalTitle"></h3></div>
+
+      <div class="modal-caption">
+        <h3 id="videoModalTitle"></h3>
+      </div>
+
     </div>
+
   </div>
+
 
   <!-- ============ IMAGE PREVIEW POPUP ============ -->
-  <div class="modal" id="imageModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle">
+  <div
+    class="modal"
+    id="imageModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="imageModalTitle"
+  >
+
     <div class="modal-backdrop" data-close></div>
+
     <div class="modal-box modal-image">
+
       <button class="modal-close" data-close aria-label="Close preview">×</button>
+
       <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
+
       <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">›</button>
-      <div class="lb-stage"><img id="lbImg" src="" alt=""></div>
-      <div class="modal-caption"><h3 id="imageModalTitle"></h3><span id="lbCount"></span></div>
+
+      <div class="lb-stage">
+        <img id="lbImg" src="" alt="">
+      </div>
+
+      <div class="modal-caption">
+        <h3 id="imageModalTitle"></h3>
+        <span id="lbCount"></span>
+      </div>
+
     </div>
+
   </div>
 
+
+  <!-- EXISTING WEBSITE JAVASCRIPT -->
   <script src="script.js"></script>
+
+  <!-- NEW THREE.JS HERO -->
+  <script type="module" src="3d-scene.js"></script>
+
 </body>
 </html>
